@@ -6,7 +6,7 @@ import { ProductMapper } from '../../infrastructure/mappers/product.mapper';
 
 const emptyProduct: Product = {
   id: '',
-  title: 'Nuevo producto',
+  title: 'Inferencia',
   description: '',
   price: 0,
   images: [],
@@ -15,17 +15,18 @@ const emptyProduct: Product = {
   sizes: [],
   stock: 0,
   tags: [],
+  predictions: []
 }
 
 
 
-export const getProductById = async (id: string):Promise<Product> => {
+export const getProductById = async (id: string): Promise<Product> => {
 
-  if ( id === 'new' ) return emptyProduct;
+  if (id === 'new') return emptyProduct;
 
 
   try {
-    
+
     const { data } = await tesloApi.get<TesloProduct>(`/products/${id}`);
 
     return ProductMapper.tesloProductToEntity(data);
@@ -33,7 +34,7 @@ export const getProductById = async (id: string):Promise<Product> => {
 
   } catch (error) {
     console.log(error);
-    throw new Error(`Error getting product by id: ${ id }`);
+    throw new Error(`Error getting product by id: ${id}`);
   }
 
 }
