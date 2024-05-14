@@ -82,7 +82,7 @@ export const ProductScreen = ({ route }: Props) => {
               <Button
                 accessoryLeft={<MyIcon name="save-outline" white />}
                 onPress={() => handleSubmit()}
-                disabled={mutation.isPending}
+                disabled={mutation.isPending || values.images.length === 0}
                 style={{ margin: 15 }}>
                 Inferir
               </Button>

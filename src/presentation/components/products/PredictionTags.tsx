@@ -39,15 +39,15 @@ const PredictionTags: React.FC<Props> = ({ predictions }) => {
     const getColor = (className: string) => {
         switch (className) {
             case 'madura':
-                return theme['color-danger-400'];
+                return theme['color-danger-500'];
             case 'pintona':
                 return theme['color-warning-400'];
             case 'inmadura':
-                return theme['color-success-400'];
+                return theme['color-success-500'];
             case 'podrida':
-                return theme['color-info-400'];
+                return theme['color-danger-800'];
             case 'flor':
-                return theme['color-primary-400'];
+                return theme['color-info-500'];
             default:
                 return theme['color-basic-400'];
         }
@@ -58,7 +58,7 @@ const PredictionTags: React.FC<Props> = ({ predictions }) => {
             {categoryDetails.map((details, index) => (
                 <View key={index} style={styles.card}>
                     <Text style={[styles.text, { color: getColor(details.class) }]}>
-                        {details.class}
+                        {details.class.toUpperCase()}
                     </Text>
                     <CircularProgressBar
                         progress={details.percentage / 100}
@@ -67,7 +67,8 @@ const PredictionTags: React.FC<Props> = ({ predictions }) => {
                                 ? 'danger' : details.class === 'pintona'
                                     ? 'warning' : details.class === 'inmadura'
                                         ? 'success' : details.class === 'podrida'
-                                            ? 'info' : 'primary'
+                                            ? 'danger' : details.class === 'flor'
+                                                ? 'info' : 'color-basic-400'
                         }
                         style={{ marginVertical: 10 }}
                     />
@@ -81,7 +82,7 @@ const PredictionTags: React.FC<Props> = ({ predictions }) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
         flexWrap: 'wrap',
         marginTop: 10,

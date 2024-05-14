@@ -21,15 +21,22 @@ export const ProductsApp = () => {
       ? theme['color-basic-800']
       : theme['color-basic-100'];
 
+  const customTheme = {
+    ...eva.light,
+
+    // Personalizando el color principal
+    'color-primary-500': '#F95F6B'
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={theme}>
+      <ApplicationProvider {...eva} theme={customTheme}>
         <NavigationContainer
           theme={{
             dark: colorScheme === 'dark',
             colors: {
-              primary: theme['color-primary-500'],
+              primary: customTheme['color-primary-500'],
               background: backgroundColor,
               card: theme['color-basic-100'],
               text: theme['text-basic-color'],
