@@ -1,10 +1,11 @@
 
 
 
+
 export interface User {
-  id:       string;
-  email:    string;
-  fullName: string;
-  isActive: boolean;
-  roles:    string[];
+  email: string;
+  is_active: boolean;
+  is_superuser: boolean;
+  full_name: string;
+  id: number;
 }

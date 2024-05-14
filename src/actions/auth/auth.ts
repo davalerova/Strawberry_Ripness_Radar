@@ -1,42 +1,44 @@
-import {tesloApi} from '../../config/api/tesloApi';
+import { tesloApi } from '../../config/api/tesloApi';
 import { User } from '../../domain/entities/user';
-import type { AuthResponse } from '../../infrastructure/interfaces/auth.responses';
+import type { AuthResponse, SRRAuthResponse } from '../../infrastructure/interfaces/auth.responses';
 
 
-const returnUserToken = ( data: AuthResponse ) => {
+const returnUserToken = (data: SRRAuthResponse) => {
 
   const user: User = {
-    id: data.id,
-    email: data.email,
-    fullName: data.fullName,
-    isActive: data.isActive,
-    roles: data.roles,
+    id: data.user.id,
+    email: data.user.email,
+    full_name: data.user.full_name,
+    is_active: data.user.is_active,
+    is_superuser: data.user.is_superuser,
   }
 
   return {
     user: user,
-    token: data.token,
+    token: data.access_token,
   }
 }
 
 
 
 export const authLogin = async (email: string, password: string) => {
-
-  email = email.toLowerCase();
-
+  const username = email.toLowerCase();
 
   try {
-    const { data } = await tesloApi.post<AuthResponse>('/auth/login', {
-      email,
+    const { data } = await tesloApi.post<SRRAuthResponse>('/login/access-token/', {
+      username,
       password,
+    }, {
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     });
 
     return returnUserToken(data);
-
-
-  } catch (error) {
-    console.log(error);
+  } catch (error: unknown) {
+    // Manejo de errores adecuado
+    console.error("Error during login:", error);
     return null;
   }
 };
@@ -45,11 +47,11 @@ export const authLogin = async (email: string, password: string) => {
 export const authCheckStatus = async () => {
 
   try {
-    const { data } = await tesloApi.get<AuthResponse>('/auth/check-status');
+    const { data } = await tesloApi.get<SRRAuthResponse>('/auth/check-status');
     return returnUserToken(data);
 
   } catch (error) {
-    console.log({error});
+    console.log({ error });
     return null;
   }
 
