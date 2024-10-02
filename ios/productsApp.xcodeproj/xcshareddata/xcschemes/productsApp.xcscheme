@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "productsApp.app"
-               BlueprintName = "productsApp"
-               ReferencedContainer = "container:productsApp.xcodeproj">
+               BuildableName = "strawberryRipnessRadar.app"
+               BlueprintName = "strawberryRipnessRadar"
+               ReferencedContainer = "container:strawberryRipnessRadar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "productsAppTests.xctest"
-               BlueprintName = "productsAppTests"
-               ReferencedContainer = "container:productsApp.xcodeproj">
+               BuildableName = "strawberryRipnessRadarTests.xctest"
+               BlueprintName = "strawberryRipnessRadarTests"
+               ReferencedContainer = "container:strawberryRipnessRadar.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "productsApp.app"
-            BlueprintName = "productsApp"
-            ReferencedContainer = "container:productsApp.xcodeproj">
+            BuildableName = "strawberryRipnessRadar.app"
+            BlueprintName = "strawberryRipnessRadar"
+            ReferencedContainer = "container:strawberryRipnessRadar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "productsApp.app"
-            BlueprintName = "productsApp"
-            ReferencedContainer = "container:productsApp.xcodeproj">
+            BuildableName = "strawberryRipnessRadar.app"
+            BlueprintName = "strawberryRipnessRadar"
+            ReferencedContainer = "container:strawberryRipnessRadar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

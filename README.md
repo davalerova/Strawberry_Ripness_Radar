@@ -1,5 +1,5 @@
-# ProductsApp 
-
+# StrawberryRipnessRadar 
+# Seguir documentación de React Native para preparar entorno de ejecución según sea MAC o PC: https://reactnative.dev/docs/set-up-your-environment
 ## Development
 1. Clonar proyecto
 2. Instalar dependencias ```npm install```

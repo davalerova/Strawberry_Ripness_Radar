@@ -5,6 +5,7 @@ import {
   Layout,
   Button,
   useTheme,
+  Text,
 } from '@ui-kitten/components';
 import { Formik } from 'formik';
 
@@ -79,16 +80,25 @@ export const ProductScreen = ({ route }: Props) => {
 
             {/* Botón de guardar o inferir */}
             {productIdRef.current === 'new' && (
-              <Button
-                accessoryLeft={<MyIcon name="save-outline" white />}
-                onPress={() => handleSubmit()}
-                disabled={mutation.isPending || values.images.length === 0}
-                style={{ margin: 15 }}>
-                Inferir
-              </Button>
+              <>
+                <Text style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  marginBottom: 10,
+                  textAlign: 'center',
+                  color: theme['color-primary-500']
+                }}>{values.images.length === 0 ? `Pulsa el ícono de la imagen para seleccionar una fotografía, luego pulsa el botón Inferir para continuar.` : `Pulsa  el botón Inferir para continuar.`}</Text>
+                <Button
+                  accessoryLeft={<MyIcon name="save-outline" white />}
+                  onPress={() => handleSubmit()}
+                  disabled={mutation.isPending || values.images.length === 0}
+                  style={{ margin: 15 }}>
+                  Inferir
+                </Button>
+              </>
             )}
 
-            <Layout style={{ height: 200 }} />
+            <Layout style={{ height: 100 }} />
           </ScrollView>
         </MainLayout>
       )}
